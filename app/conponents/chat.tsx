@@ -16,7 +16,11 @@ interface ChatMessage {
   gif: string;
   // Add any other properties if needed
 }
-const Chat = (user : string) => {
+
+interface User {
+  user : string
+}
+const Chat = (user: User) => {
   const bottomRef = useRef<null | HTMLDivElement>(null);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
