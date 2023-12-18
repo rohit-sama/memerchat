@@ -18,7 +18,7 @@ interface ChatMessage {
 }
 const Chat = () => {
   const bottomRef = useRef<null | HTMLDivElement>(null);
-  const [message, setMessage] = useState();
+  const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [finalResult, setFinalResult] = useState<ChatData>();
   const [history, sethistory] = useState();
