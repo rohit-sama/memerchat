@@ -9,11 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.28.1",
+    "@ffmpeg/ffmpeg": "^0.12.8",
     "@google/generative-ai": "^0.1.2",
+    "@next-auth/upstash-redis-adapter": "^3.0.4",
+    "@upstash/redis": "^1.25.2",
     "axios": "^1.6.2",
+    "child_process": "^1.0.2",
+    "mongoose": "^8.0.3",
     "next": "14.0.4",
+    "next-auth": "^4.24.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "text-on-gif": "^2.0.13"
   },
   "devDependencies": {
     "@types/node": "^20",
