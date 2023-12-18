@@ -1,6 +1,6 @@
 
 import Chat from "./conponents/chat";
-import { auth, currentUser } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs";
 import { UserButton } from "@clerk/nextjs";
 
 

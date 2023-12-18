@@ -1,8 +1,6 @@
 "use client";
-import { J } from "@upstash/redis/zmscore-415f6c9f";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { json } from "stream/consumers";
 
 interface ChatData {
   _id: string;
