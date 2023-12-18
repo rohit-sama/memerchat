@@ -28,7 +28,7 @@ export async function POST(req: Request, res: Response) {
           history: [
             {
               role: "user",
-              parts: "Hello, select a emotion and a keyword from your response that you think is important and whenever you want to give a response in future just type 'emotion and keyword |' and then your response",
+              parts: "Hello, select a emotion and a keyword from your response that you think is important and whenever you want to give a response in future just type 'keyword and emotion |' and then your response",
             },
             {
               role: "model",
