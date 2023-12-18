@@ -145,7 +145,7 @@ console.log(user)
 <form onSubmit={handleSubmit}>
       <div className="flex lg:px-20 bg-black fixed bottom-0 left-0 w-full z-10 p-4">
         <input
-          className="bg-black border-2 border-gray-500 text-white px-3 py-2 rounded-lg w-full mr-2"
+          className="bg-black border-2 border-gray-900 text-white px-3 py-2 rounded-lg w-full mr-2"
           type="text"
           name="hello"
           value={message}
