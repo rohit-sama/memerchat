@@ -119,7 +119,7 @@ export async function POST(req: Request, res: Response) {
     const responsechat = await resultchat.response;
     const textchat = responsechat.text();
     const finalResponse = textchat.split("|");
-    const gifresponse = finalResponse[0] + 'meme indian';
+    const gifresponse = finalResponse[0] + 'memefunny';
     const responsegif = await axios.get(
       `https://api.giphy.com/v1/gifs/search?api_key=AufhSdFV4jsryCg9jVIRZz7VGsHktrix&q=${gifresponse}&limit=10&offset=0&rating=g&lang=en&bundle=messaging_non_clips`,
       {}
