@@ -103,10 +103,10 @@ console.log(user)
         } mb-4`}
       >
          {message.role !== "user"  && ( /* Conditionally rendering image */
-            <Image width={30} height={30} src="/favicon.ico" alt="" className="w-12 h-12 rounded-full ml-2" />
+            <Image width={25} height={25} src="/favicon.ico" alt="" className="w-12 h-12 rounded-full ml-2" />
           )}
         <div className="flex items-center"> {/* Added a wrapper div for message and image */}
-          <div className="bg-gray-900 bg-opacity-20 border-2 border-gray-900 rounded-lg p-3 max-w-md mx-2">
+          <div className="bg-gray-900 bg-opacity-20 border-2 border-gray-800 rounded-lg p-3 max-w-md mx-2">
             {message.role === "user" ? (
               // <Image src={} />
               <p className="text-white">{message.parts}</p>
@@ -124,9 +124,10 @@ console.log(user)
             )}
           </div>
           {message.role !== "model" && user.user  && ( /* Conditionally rendering image */
-            <Image width={30} height={30} src={user.user} alt="" className="w-12 h-12 rounded-full ml-2" />
+            <Image width={25} height={25} src={user.user} alt="" className="w-12 h-12 rounded-full ml-2" />
           )}
         </div>
+        <div ref={bottomRef} />
       </div>
     ))
   ) : (
@@ -145,9 +146,9 @@ console.log(user)
 <form onSubmit={handleSubmit}>
       <div className="flex lg:px-20 bg-black fixed bottom-0 left-0 w-full z-10 p-4">
         <input
-          className="bg-black border-2 border-gray-900 text-white px-3 py-2 rounded-lg w-full mr-2"
+          className="bg-black border-2 border-gray-600 text-white px-3 py-2 rounded-lg w-full mr-2"
           type="text"
-          name="hello"
+          name="chatinput"
           value={message}
           onChange={handlechange}
           onKeyPress={handleKeyPress} // Trigger on Enter key press
@@ -157,8 +158,8 @@ console.log(user)
           type="submit"
           className={
             isLoading
-              ? 'bg-red-500 text-white px-4 py-2 rounded-lg'
-              : 'bg-red-200 text-black px-4 py-2 rounded-lg'
+              ? 'bg-orange-200 text-black px-4 py-2 rounded-lg'
+              : 'bg-green-200 text-black px-4 py-2 rounded-lg'
           }
           disabled={isLoading}
         >
@@ -167,7 +168,7 @@ console.log(user)
       </div>
     </form>
       </div>
-      <div ref={bottomRef} />
+      
     </div>
   );
 };

@@ -1,8 +1,6 @@
 import { connectDb } from "@/utils/db.js";
 import axios from "axios";
 const { GoogleGenerativeAI } = require("@google/generative-ai");
-const mongoose = require('mongoose');
-// import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 import { ChatData } from "@/models/ChatData"
 import { auth } from '@clerk/nextjs';
 
@@ -172,15 +170,6 @@ export async function POST(req: Request, res: Response) {
       .catch((err) => {
         console.error('Error updating or creating ChatData:', err);
       });
-    // const outputGif = 'output.gif';
-    // const textToDraw = finalResponse[1];
-
-    // const ffmpeg = createFFmpeg({ log: true });
-    // await ffmpeg.load();
-    // ffmpeg.FS('writeFile', 'input.gif', await fetchFile(inputGif));
-    // await ffmpeg.run('-i', 'input.gif', 'output.mp4');
-    // const data = ffmpeg.FS('readFile', 'output.gif');
-    // const url = URL.createObjectURL(new Blob([data.buffer], { type: 'video/gif' }));
 
     console.log(SavedData);
     const finalresult = JSON.stringify(SavedData);

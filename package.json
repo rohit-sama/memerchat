@@ -12,6 +12,7 @@
     "@clerk/nextjs": "^4.28.1",
     "@google/generative-ai": "^0.1.2",
     "axios": "^1.6.2",
+    "framer-motion": "^10.16.16",
     "mongoose": "^8.0.3",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
