@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Memer Chat - AI Chat bot but with memes
 
-## Getting Started
+Memer Chat is an AI-powered chat application built using Next.js, Tailwind CSS, Node.js, Gemini API, and several other APIs. This application allows users to engage in conversations and receive responses enriched with GIFs and images.
 
-First, run the development server:
+## Live Link
+https://memerchat.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of Contents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+- AI-driven chat responses
+- Integration with Gemini API for GIFs/images
+- Real-time conversation experience
+- Easy-to-use interface
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Next.js
+- Tailwind CSS
+- Node.js
+- Gemini API
+- [Add other APIs used]
 
-## Deploy on Vercel
+## Screenshots
+![image](https://github.com/rohit-sama/memerchat/assets/112627630/90de1610-ccfc-46e4-95bf-f34a1a328479)
+![image](https://github.com/rohit-sama/memerchat/assets/112627630/8d38c9e4-14b6-47bd-8779-263d4ff16cd2)
+![image](https://github.com/rohit-sama/memerchat/assets/112627630/8d6aca8f-a507-4252-a841-f3964d5422f0)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Installation
+
+1. Clone the repository from [GitHub](https://github.com/rohit-sama/memer-chat).
+2. Install dependencies using `npm install`.
+3. run the app with `npm run dev`
+4. add env variables
+   `
+API_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+MONGODB_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=
+   `
+
+## Usage
+
+1. Run the application using `npm run dev`.
+2. Access the application through your browser at `http://localhost:3000`.
+3. [Add any specific usage instructions or guidelines]
+
+## Contributing
+
+As the sole contributor to this project, I welcome any suggestions or contributions. Feel free to fork the repository and create pull requests for any enhancements or bug fixes.
