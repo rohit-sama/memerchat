@@ -25,18 +25,19 @@ export default async function Home() {
             <UserButton afterSignOutUrl="/" />
           </div>
           <div className="xl:flex justify-between lg:p-20 p-3 items-center h-screen ">
-            <div className="h-screen flex flex-col justify-center">
-              <h1 className="md:text-8xl  text-7xl pb-2 mb-5 text-gray-500">
+            <div className="flex flex-col justify-center">
+              <h1 className="md:text-8xl max-sm:mt-40 text-7xl pb-2 mb-5 text-gray-500">
                 Welcome,
               </h1>
-              <h1 className="text-gray-400 text-5xl">
+              <h1 className="text-gray-400 max-sm:text-3xl text-5xl">
                 AI Chat bot Which talks with you in gifs/memes
               </h1>
-             
+              <Link href="/chat" className="text-white mt-5 bg-purple-900 p-2 flex justify-center w-[20%] rouded-md">Start Chating</Link >
             </div>
-            <div className=" justify-center my-20 pb-10">
+            <div className=" justify-center bg-black mt-10">
+           
               <Youtube />
-              <Link href="/chat" className="text-white bg-purple-900 p-2 flex justify-center mt-5 rouded-md">Start Chatting</Link >
+              
             </div>
           </div>
         </div>
