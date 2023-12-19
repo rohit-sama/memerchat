@@ -7,20 +7,37 @@ import { auth } from '@clerk/nextjs';
 
 export async function POST(req: Request, res: Response) {
 
-  try {
+      // Define a type for each item in the history array
+      interface HistoryItem {
+        role: string;
+        parts: string;
+        _id: string;
+      }
+      // Define the structure of the entire history data
+      interface ChatHistory {
+        toJSON: any;
+        _id: string;
+        history: HistoryItem[];
+        __v: number;
+  
+      }
 
+  try {
+    // get prompt from frontend
+    const { context } = await req.json();
+
+    //check if user is authenticated
     const { userId } = auth();
     if (!userId) {
       return new Response("Unauthorized", { status: 401 });
     }
-    const { context } = await req.json();
 
+    //connect to db
     await connectDb();
     ChatData.findOne({ userId: userId }).then((existingData) => {
       if (existingData) {
         console.log("data exists")
       } else {
-        // If no document exists for the userId, create a new ChatData instance
         const newData = new ChatData({
           userId: userId,
           history: [
@@ -59,27 +76,13 @@ export async function POST(req: Request, res: Response) {
             
           ]
         });
-        // Save the new ChatData instance
         return newData.save();
       }
     })
 
-    // Define a type for each item in the history array
-    interface HistoryItem {
-      role: string;
-      parts: string;
-      _id: string;
-    }
-    // Define the structure of the entire history data
-    interface ChatHistory {
-      toJSON: any;
-      _id: string;
-      history: HistoryItem[];
-      __v: number;
-
-    }
 
 
+    // setting up history
     const history: ChatHistory | null = await ChatData.findOne({ userId: userId });
     let finalHistory: { role: string; parts: string }[] = [];
     if (history) {
@@ -93,19 +96,13 @@ export async function POST(req: Request, res: Response) {
           };
         }
       );
-
-      console.log(finalHistory);
     }
 
 
 
-    // Access your API key as an environment variable (see "Set up your API key" above)
+    // gemini api 
     const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-
-
-    // For text-only input, use the gemini-pro model
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
     const chat = model.startChat({
       history: finalHistory,
       generationConfig: {
@@ -131,9 +128,14 @@ export async function POST(req: Request, res: Response) {
       ]
     });
 
+
+    // getting response form gemini
     const resultchat = await chat.sendMessage(context);
     const responsechat = await resultchat.response;
     const textchat = responsechat.text();
+
+    
+    // api call for image/gif
     const finalResponse = textchat.split("|");
     const gifresponse = finalResponse[0] + 'memefunny';
     const responsegif = await axios.get(
@@ -145,10 +147,11 @@ export async function POST(req: Request, res: Response) {
     console.log(gifresponse)
     let SavedData;
 
+
+    // saving history to db
     ChatData.findOne({ userId: userId })
       .then((existingData) => {
         if (existingData) {
-          // If a document exists for the userId, update it by appending to the history
           existingData.history.push({
             role: "user",
             parts: context,
@@ -159,19 +162,19 @@ export async function POST(req: Request, res: Response) {
             gif: inputGif,
           });
           console.log(inputGif)
-          // Save the updated document
           return existingData.save();
         }
       })
       .then((savedData) => {
         SavedData = savedData;
-
       })
       .catch((err) => {
         console.error('Error updating or creating ChatData:', err);
       });
-
     console.log(SavedData);
+
+
+    // sending final result to frontend
     const finalresult = JSON.stringify(SavedData);
     return new Response(finalresult, { status: 200, headers: { 'Content-Type': 'application/json' } })
   } catch (error) {

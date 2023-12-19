@@ -20,6 +20,7 @@ interface ChatMessage {
 interface User {
   user : string
 }
+
 const Chat = (user: User) => {
   const bottomRef = useRef<null | HTMLDivElement>(null);
   const [message, setMessage] = useState("");
