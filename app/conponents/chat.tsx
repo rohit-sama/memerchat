@@ -74,8 +74,12 @@ console.log(user)
       const response = await axios.get("/api/gethistory");
       if (response.status === 200) {
         // Set the response data directly to the state
-        setFinalResult(response.data);
-        sethistory(response.data.history);
+        if (JSON.stringify(response.data) !== JSON.stringify(finalResult)) {
+          console.log("helloee")
+          setFinalResult(response.data);
+          sethistory(response.data.history);
+        }
+        
       } else {
         console.error("Failed to fetch history:", response.statusText);
       }
@@ -86,7 +90,8 @@ console.log(user)
 
   useEffect(() => {
     getHistory();
-  }, []);
+    console.log("hellpo")
+  }, [finalResult]);
 
 
   return (
